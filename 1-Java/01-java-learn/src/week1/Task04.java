@@ -11,7 +11,7 @@ public class Task04 {
 		String time = sc.nextLine();
 		System.out.println("Minute is : "+ time.charAt(3)+time.charAt(4));
 		
-		
+		// we can use here subString method and give the parameter(3,5)
 		
 	}
 
