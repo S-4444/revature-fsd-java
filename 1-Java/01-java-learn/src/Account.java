@@ -39,7 +39,8 @@ public class Account {
 		Transaction transaction5 = new Transaction('W',10000);
 	    
 	    Transaction[] transactionArray= {transaction1, transaction2,transaction3,transaction4,transaction5}; /*  this the encapsulation
-	                                                                                                           because we are collecting all the objects ina single array and also we are hiding the data using private instant variable*/
+	                                                                                                           because we are collecting all the objects in a single array 
+	                                                                                                           and also we are hiding the data using private instant variable*/
     	Account account = new Account("01302343794" , 5000.0, transactionArray);
     	account.printStatement();
     }

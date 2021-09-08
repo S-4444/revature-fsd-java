@@ -8,9 +8,9 @@ public class Displayloop {
 		// TODO Auto-generated method stub
 
 		int option = 0;
-
-		if (option < 4) {
-			while (option < 4) {
+//
+//		if (option < 4) {
+			while (true) {
 				System.out.println("Menu");
 				System.out.println("====");
 				System.out.println("1. Balance Enquiry");
@@ -33,15 +33,19 @@ public class Displayloop {
 				case 3:
 					System.out.println("3. Change caller tune");
 					break;
+				case 4 :
+					System.out.println("4. Exit ");
+					System.exit(option);
 				}
 			}
 
-		} else if (option == 4) {
-			System.out.println("4. Exit");
-		}
-		else if(option>4) {
-			System.out.println("You have entered a wrong input");
-		}
+	//}
+			//else if (option == 4) {
+//			System.out.println("4. Exit");
+//		}
+//		else if(option>4) {
+//			System.out.println("You have entered a wrong input");
+//		}
 	}
 
 }
