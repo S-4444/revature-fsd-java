@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Document</title>
+</head>
+<body>
+    <script src="scripts/hello.js"> </script>
+    <script>
+        // 1. Global 
+        // 2. Funcinal 
+        //  3 . Block - ES6
+
+        var age = 10; // Global variable
+        var age = 25; // its fine because we can override the value ''
+        console.log(age);
+        console.log(name);
+
+        function add ( a,b){
+            var c= a+b;
+            console.log(c);
+            return c;
+        }
+
+       // console.log(c); this is gives error 
+          // because C is not degfined out side the function;
+
+          add(5,7);
+
+          let number = 15;
+          number = 20; // we can change the value 
+          //let number = 30; ------> its gives error but for Var its accepts means its override
+
+          console.log(number);
+          {
+
+            let number = 25;
+            console.log(number);
+
+          }
+          console.log(number);
+          const i = 10;
+          i=20;
+
+    </script>
+    
+</body>
+</html>

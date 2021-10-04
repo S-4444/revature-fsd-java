@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Key up</title>
+    </head>
+    <body>
+        <input type="text"  id="btn">
+        <script>
+            var text= document.getElementById("btn");
+            text.addEventListener("keyup", function (event) {
+                console.log(event.target.value);
+            });
+        </script>
+    </body>
+</html>

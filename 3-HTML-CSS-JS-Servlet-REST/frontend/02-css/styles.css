@@ -1,0 +1,23 @@
+.nav {
+    background-color: darkblue; 
+    padding: 5px; 
+    text-decoration: none;
+     color: yellow; 
+     font-weight: bold;
+      cursor: pointer;
+}
+#hed{
+    color: blue;
+    /* padding: 10px;
+     border :2px solid red;  /*box model code */
+    /* margin : 2px; */ 
+}
+
+div{
+    border : 5px solid blue;
+    background-color: chocolate;
+}
+
+/* *{
+    border: 3px  solid green; 
+} */

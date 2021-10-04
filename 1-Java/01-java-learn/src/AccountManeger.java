@@ -2,7 +2,7 @@
 public class AccountManeger {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
          String accountNumber= "01302343794";
          double balance = 5000.0;
          
