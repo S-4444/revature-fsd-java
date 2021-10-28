@@ -66,7 +66,7 @@ async function addCustomer() {
 
 }
 gridCheck.addEventListener("click", function() {
-    console.log(" puja");
+    console.log("Rai");
     valid = true ; 
 })
 

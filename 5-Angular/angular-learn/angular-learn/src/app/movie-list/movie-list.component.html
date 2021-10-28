@@ -1,0 +1,8 @@
+<h2>Movies </h2>
+<input type="text" placeholder="Serach movie here " [(ngModel)]= "searchKey" (keyup)="findMovies()">
+<div>{{searchKey}}</div>
+<app-movie 
+       [movie]="movie" 
+       (favoriteSelected)="signalFromChild()"
+        *ngFor="let movie of movies">
+</app-movie>

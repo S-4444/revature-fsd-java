@@ -8,19 +8,25 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.revature.bankapp.dao.AccountDao;
 import com.revature.bankapp.dao.Util;
+import com.revature.bankapp.exception.AppException;
 import com.revature.bankapp.model.Account;
 import com.revature.bankapp.model.Transaction;
 
 public class AccountDaoImpl implements AccountDao {
-	
+	private static final Logger LOGGER = LoggerFactory.getLogger(CustomerDaoImpl.class);
+
 	private static int currentAccountId;
 	private static int transferAccountId;
 
 	@Override
 	public void create(Account account) throws SQLException {
+		  LOGGER.info("Start");
+	       LOGGER.debug("{}",account);
 		try (Connection connection = Util.getConnection()) {
 			String sql = "INSERT INTO account (balance, first_name, last_name,branch , email) VALUES (?,?,?,?,?)";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -30,7 +36,10 @@ public class AccountDaoImpl implements AccountDao {
 			preparedStatement.setString(4, account.getBranch());
 			preparedStatement.setString(5, account.getEmail());
 			preparedStatement.executeUpdate();
-            
+			LOGGER.info("End");
+		}catch(SQLException e) {
+			LOGGER.error("error inserting the ");
+			throw new SQLException(e);
 		}
 		
 		
@@ -39,7 +48,7 @@ public class AccountDaoImpl implements AccountDao {
 	@Override
 	public ArrayList<Account> showAccounts() throws SQLException {
 		List<Account> accountList = new ArrayList<>();
-		String email = "sibghatulla@gmail.com";
+		String email = CustomerDaoImpl.currentEmail;
 		try (Connection connection = Util.getConnection()) {
 			String sql = "select * from account where email =?";
 			PreparedStatement statement = connection.prepareStatement(sql);
@@ -47,7 +56,7 @@ public class AccountDaoImpl implements AccountDao {
 			ResultSet resultSet = statement.executeQuery();
 			while (resultSet.next()) {
 				Account account = new Account();
-				account.setAccount_no(resultSet.getLong("account_number"));
+				account.setAccount_no(resultSet.getInt("account_number"));
 				account.setBalance(resultSet.getDouble("balance"));
 				account.setFirst_name(resultSet.getString("first_name"));
 				account.setLast_name(resultSet.getString("last_name"));
@@ -60,12 +69,13 @@ public class AccountDaoImpl implements AccountDao {
 	
 	}
 
-	public Account currentAccount() throws SQLException {
+	public Account currentAccount(int accountNumber) throws SQLException {
 		Account account = null;
 		try (Connection connection = Util.getConnection()) {
 			String sql = "select * from account where account_number = ?";
 			PreparedStatement statement = connection.prepareStatement(sql);
-			statement.setString(1, "0123456789");
+//			statement.setInt(1, "accountNumber");
+			statement.setInt(1, accountNumber);
 			ResultSet resultSet = statement.executeQuery();
 			while (resultSet.next()) {
 				currentAccountId = resultSet.getInt("account_number");

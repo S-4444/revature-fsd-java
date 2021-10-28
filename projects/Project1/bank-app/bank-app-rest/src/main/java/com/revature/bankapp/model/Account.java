@@ -12,7 +12,7 @@ public class Account {
 	private String branch;
 	private String first_name;
 	private String last_name;
-    private long account_no ; 
+    private int account_no ; 
 	private String email;
 	
 
@@ -32,7 +32,7 @@ public class Account {
 
 
 
-	public Account(double balance, long account_no) {
+	public Account(double balance, int account_no) {
 		super();
 		this.balance = balance;
 		this.account_no = account_no;
@@ -47,13 +47,13 @@ public class Account {
 	
 	
 
-	public long getAccount_no() {
+	public int getAccount_no() {
 		return account_no;
 	}
 
 
 
-	public void setAccount_no(long account_no) {
+	public void setAccount_no(int account_no) {
 		this.account_no = account_no;
 	}
 

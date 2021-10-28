@@ -22,7 +22,8 @@ import com.revature.bankapp.model.Customer;
 
 public class CustomerDaoImpl implements CustomerDao  {
 	private static final Logger LOGGER = LoggerFactory.getLogger(CustomerDaoImpl.class);
-
+     
+	public static String currentEmail;
 	@Override
 	public void creat(Customer customer) throws AppException {
        LOGGER.info("Start");
@@ -57,6 +58,7 @@ public class CustomerDaoImpl implements CustomerDao  {
 				customer.setFirstname(resultSet.getString("FirstName"));
 				customer.setLastname(resultSet.getString("LastName"));
 				customer.setEmail(resultSet.getString("Email"));
+				 currentEmail= resultSet.getString("Email");
 				customer.setPassword(resultSet.getString("password"));
 				
             return customer;
